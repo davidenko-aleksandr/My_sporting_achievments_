@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="My_sporting_achievments.Views.ExercisePage"
+             NavigationPage.HasNavigationBar="False">
+    
+ 
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="#000000">
+            <ListView x:Name="exerciseList" ItemsSource="{Binding}" ItemSelected="OnItemSelected">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <ViewCell.View>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="{Binding NameExercise}" 
+                                           FontSize="23"                                           
+                                           TextColor="#d9daf0"/>
+                                </StackLayout>
+                            </ViewCell.View>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <Button Clicked="CreateOneExerciseClicked"
+                Text="Add new train" 
+                VerticalOptions="EndAndExpand"
+                HeightRequest="50"
+                FontSize="23"
+                BackgroundColor="#d9daf0"
+                TextColor="#0e1e1e"
+                CornerRadius="20"
+                BorderWidth="2"
+                BorderColor="#0e1e1e"
+                Margin="5,10,5,10"/>
+    
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29424.173
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "My_sporting_achievments.Android", "My_sporting_achievments\My_sporting_achievments.Android\My_sporting_achievments.Android.csproj", "{42AE5F55-15AA-4888-A218-697A14AAC629}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "My_sporting_achievments", "My_sporting_achievments\My_sporting_achievments\My_sporting_achievments.csproj", "{93FC67BF-8886-4551-A562-B30BBDDF7E52}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{42AE5F55-15AA-4888-A218-697A14AAC629}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42AE5F55-15AA-4888-A218-697A14AAC629}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42AE5F55-15AA-4888-A218-697A14AAC629}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{42AE5F55-15AA-4888-A218-697A14AAC629}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42AE5F55-15AA-4888-A218-697A14AAC629}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42AE5F55-15AA-4888-A218-697A14AAC629}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{93FC67BF-8886-4551-A562-B30BBDDF7E52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93FC67BF-8886-4551-A562-B30BBDDF7E52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93FC67BF-8886-4551-A562-B30BBDDF7E52}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{93FC67BF-8886-4551-A562-B30BBDDF7E52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93FC67BF-8886-4551-A562-B30BBDDF7E52}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93FC67BF-8886-4551-A562-B30BBDDF7E52}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {23F538ED-0976-43AD-8114-520725B060EF}
+	EndGlobalSection
+EndGlobal

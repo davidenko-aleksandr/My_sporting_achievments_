@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="My_sporting_achievments.Views.ChooseWorkout"
+             NavigationPage.HasNavigationBar="False">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="#000000">
+            <Label
+                VerticalOptions="Start" 
+                HorizontalOptions="CenterAndExpand"/>
+
+            <Button Text="Силовая тренировка"
+                    Clicked="OnStrongWorkoutClicked"
+                    VerticalOptions="Center"
+                    HeightRequest="50"
+                    FontSize="23"
+                    BackgroundColor="#d9daf0"
+                    TextColor="#0e1e1e"
+                    CornerRadius="20"
+                    BorderWidth="2"
+                    BorderColor="#0e1e1e"
+                    Margin="5,10,5,10"/>
+
+            <Button Text="Кардио тренировка" 
+                    Clicked="OnCardioWorkoutClicked"
+                    VerticalOptions="Center"
+                    HeightRequest="50"
+                    FontSize="23"
+                    BackgroundColor="#d9daf0"
+                    TextColor="#0e1e1e"
+                    CornerRadius="20"
+                    BorderWidth="2"
+                    BorderColor="#0e1e1e"
+                    Margin="5,10,5,10"/>
+
+
+            <Button Text="Кроссфит" 
+                    Clicked="OnStrongWorkoutClicked"
+                    VerticalOptions="Center"
+                    HeightRequest="50"
+                    FontSize="23"
+                    BackgroundColor="#d9daf0"
+                    TextColor="#0e1e1e"
+                    CornerRadius="20"
+                    BorderWidth="2"
+                    BorderColor="#0e1e1e"
+                    Margin="5,10,5,10"/>
+
+            <Button Text="Любое время и место" 
+                    Clicked="OnStrongWorkoutClicked"
+                    VerticalOptions="Center"
+                    HeightRequest="50"
+                    FontSize="23"
+                    BackgroundColor="#d9daf0"
+                    TextColor="#0e1e1e"
+                    CornerRadius="20"
+                    BorderWidth="2"
+                    BorderColor="#0e1e1e"
+                    Margin="5,10,5,10"/>
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

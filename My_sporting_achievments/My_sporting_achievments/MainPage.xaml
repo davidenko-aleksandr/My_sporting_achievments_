@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="My_sporting_achievments.MainPage"
+             NavigationPage.HasNavigationBar="False">
+
+    <StackLayout BackgroundColor="#000000">
+
+
+        <Label Text="My sporting achievements"
+                    HorizontalOptions="Center"
+                    TextColor="#d9daf0"
+                    FontSize="30"
+                    FontFamily="fantasy"
+                    VerticalOptions="Start"/>
+
+        <Image Source="rocky2mini.jpg" 
+                     HorizontalOptions="Center"
+                     VerticalOptions="Center"
+                     Margin="0,20,0,20"/>
+
+        <Entry Placeholder="Введите логин"
+                          BackgroundColor="#d9daf0"
+                          Margin="20,0,20,0"
+                          Keyboard="Email"
+                          x:Name="LoginEntry"/>
+
+        <StackLayout Orientation="Horizontal" Spacing="20">
+            <Entry Placeholder="Введите пароль"
+                              BackgroundColor="#d9daf0"
+                              Margin="20,0,0,0"
+                              IsPassword="True"
+                              x:Name="PasswordEntry"
+                              HorizontalOptions="FillAndExpand"/>
+
+            <Button Text="*" 
+                        Margin="0,0,20,0"
+                        WidthRequest="40"
+                        HeightRequest="40"
+                        CornerRadius="20"
+                        BackgroundColor="#d9daf0"
+                        TextColor="Black"
+                        Clicked="OnShowPassword"
+                        x:Name="PasswordButton"
+                        HorizontalOptions="End"/>
+                        </StackLayout>
+
+        <Button Text="Регистрация"
+                    FontSize="15"
+                    HorizontalOptions="Center"
+                            TextColor="#d9daf0"
+                    BackgroundColor="Transparent"
+                    Clicked="OnRegistClicked"/>
+
+        <Button Text="Войти"
+                    HorizontalOptions="Center"
+                    FontSize="30"
+                    BackgroundColor="#d9daf0"
+                    TextColor="#0e1e1e"
+                    CornerRadius="20"
+                    BorderWidth="2"
+                    BorderColor="#0e1e1e"
+                    Command="{Binding OpenChooseWorkoutPageCommand}"/>
+    </StackLayout>
+
+</ContentPage>
