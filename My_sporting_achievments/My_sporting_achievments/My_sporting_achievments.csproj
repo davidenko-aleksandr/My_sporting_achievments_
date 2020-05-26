@@ -12,16 +12,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Views\ChooseWorkout.xaml.cs">
-      <DependentUpon>ChooseWorkout.xaml</DependentUpon>
+    <Compile Update="Views\ChooseWorkoutPage.xaml.cs">
+      <DependentUpon>ChooseWorkoutPage.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Views\CardioWorkoutPage.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Views\ChooseWorkout.xaml">
+    <EmbeddedResource Update="Views\ChooseWorkoutPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\ExercisePage.xaml">

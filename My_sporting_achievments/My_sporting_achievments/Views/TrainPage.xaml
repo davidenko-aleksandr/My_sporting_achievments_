@@ -57,8 +57,8 @@
             </StackLayout>
             <Entry Text="{Binding Repetitions}"/>
             <StackLayout Orientation="Horizontal">
-                <Button Text="Сохранить" Clicked="SaveFriendClicked" TextColor="#d9daf0" CornerRadius="20" BackgroundColor="#000000"/>
-                <Button Text="Удалить" Clicked="DeleteFriendClicked" TextColor="#d9daf0" CornerRadius="20" BackgroundColor="#000000"/>
+                <Button Text="Сохранить" Clicked="SaveExerciseClicked" TextColor="#d9daf0" CornerRadius="20" BackgroundColor="#000000"/>
+                <Button Text="Удалить" Clicked="DeleteExerciseClicked" TextColor="#d9daf0" CornerRadius="20" BackgroundColor="#000000"/>
                 <Button Text="Отмена" Clicked="CancelClicked" TextColor="#d9daf0" CornerRadius="20" BackgroundColor="#000000"/>
             </StackLayout>
         </StackLayout>

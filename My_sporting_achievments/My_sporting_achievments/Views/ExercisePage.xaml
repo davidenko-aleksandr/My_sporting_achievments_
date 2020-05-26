@@ -16,16 +16,14 @@
                         <ViewCell>
                             <ViewCell.View>
                                 <StackLayout Orientation="Horizontal">
-                                    <Label Text="{Binding NameExercise}" 
-                                           FontSize="23"                                           
-                                           TextColor="#d9daf0"/>
+                                    <Label Text="{Binding NameExercise}" FontSize="23" TextColor="#d9daf0" x:Name="NameExLable"/>
                                 </StackLayout>
                             </ViewCell.View>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <Button Clicked="CreateOneExerciseClicked"
+            <Button Command="{Binding CreateTrainCommand}"
                 Text="Add new train" 
                 VerticalOptions="EndAndExpand"
                 HeightRequest="50"

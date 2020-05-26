@@ -1,23 +1,22 @@
-﻿using My_sporting_achievments.Models;
-using My_sporting_achievments.Repository;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
+using System.Windows.Input;
+using Xamarin.Forms;
 
 namespace My_sporting_achievments.ViewModels
 {
-    public class RegistrationPageViewModels : Registration, INotifyPropertyChanged
+    public class TrainPageViewModel : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-        public RegistratoinAsyncRepository registratoinAsyncRepository;
-        //private string _userName;
-        //private string _login;
-        //private string _password;
+        private ICommand _saveExerciseCommand;
+        public ICommand SaveExerciseCommand => _saveExerciseCommand ?? (_saveExerciseCommand = new Command(SaveExercise));
 
-
-        
-
+        private void SaveExercise()
+        {
+            throw new NotImplementedException();
+        }
 
         protected void OnPropertyChanged(string propName)
         {

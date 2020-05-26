@@ -9,6 +9,7 @@ namespace My_sporting_achievments.Models
     {
         [PrimaryKey, AutoIncrement, Column("_id")]
         public int Id { get; set; }
+        [Unique]
         public string Login { get; set; }
         public string Password { get; set; }
         public string UserName { get; set; }

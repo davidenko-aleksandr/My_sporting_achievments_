@@ -13,7 +13,7 @@
                 HorizontalOptions="CenterAndExpand"/>
 
             <Button Text="Силовая тренировка"
-                    Clicked="OnStrongWorkoutClicked"
+                    Command="{Binding OpenExercisePageCommand}"
                     VerticalOptions="Center"
                     HeightRequest="50"
                     FontSize="23"
@@ -25,7 +25,7 @@
                     Margin="5,10,5,10"/>
 
             <Button Text="Кардио тренировка" 
-                    Clicked="OnCardioWorkoutClicked"
+                    Command="{Binding OpenExercisePageCommand}"
                     VerticalOptions="Center"
                     HeightRequest="50"
                     FontSize="23"
@@ -38,7 +38,7 @@
 
 
             <Button Text="Кроссфит" 
-                    Clicked="OnStrongWorkoutClicked"
+                    Command="{Binding OpenExercisePageCommand}"
                     VerticalOptions="Center"
                     HeightRequest="50"
                     FontSize="23"
@@ -50,7 +50,7 @@
                     Margin="5,10,5,10"/>
 
             <Button Text="Любое время и место" 
-                    Clicked="OnStrongWorkoutClicked"
+                    Command="{Binding OpenExercisePageCommand}"
                     VerticalOptions="Center"
                     HeightRequest="50"
                     FontSize="23"
