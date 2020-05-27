@@ -14,20 +14,15 @@ namespace My_sporting_achievments.Views
             BindingContext = new ExercisePageViewModel();
             
         }
-        protected override async void OnAppearing()
-        {
-            await App.DataBase.CreateTable();
-            exerciseList.ItemsSource = await App.DataBase.GetItemsAsync();
-            base.OnAppearing();
-        }
 
-        private async void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
-        {
-            OneExercise selectedExercise = (OneExercise)e.SelectedItem;
-            TrainPage trainPage = new TrainPage();
-            trainPage.BindingContext = selectedExercise;
-            await Navigation.PushAsync(trainPage);
-        }
+
+        //private async void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
+        //{
+        //    OneExercise selectedExercise = (OneExercise)e.SelectedItem;
+        //    TrainPage trainPage = new TrainPage();
+        //    trainPage.BindingContext = selectedExercise;
+        //    await Navigation.PushAsync(trainPage);
+        //}
     }   
 }
 

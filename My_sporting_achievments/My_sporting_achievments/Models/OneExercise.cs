@@ -1,4 +1,5 @@
 ﻿using SQLite;
+using System.Windows.Input;
 
 namespace My_sporting_achievments.Models
 {
@@ -19,5 +20,7 @@ namespace My_sporting_achievments.Models
         public double Weight_5 { get; set; }
         public int Repetitions_5 { get; set; }
 
+        [Ignore]
+        public ICommand ExerciseSelected { get; set; }
     }
 }

@@ -19,6 +19,7 @@ namespace My_sporting_achievments.ViewModels
         private async void OpenExercisePageAsync()
         {
             await NavigationServices.NavigateToAsync(new ExercisePage());
+           
         }
 
         protected void OnPropertyChanged(string propName)

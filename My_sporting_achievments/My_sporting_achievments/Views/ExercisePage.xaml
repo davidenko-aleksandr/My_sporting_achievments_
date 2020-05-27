@@ -10,13 +10,20 @@
  
     <ContentPage.Content>
         <StackLayout BackgroundColor="#000000">
-            <ListView x:Name="exerciseList" ItemsSource="{Binding}" ItemSelected="OnItemSelected">
+            <ListView x:Name="exerciseList" ItemsSource="{Binding TrainCollection}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <ViewCell.View>
                                 <StackLayout Orientation="Horizontal">
-                                    <Label Text="{Binding NameExercise}" FontSize="23" TextColor="#d9daf0" x:Name="NameExLable"/>
+                                    <Label Text="{Binding NameExercise}" FontSize="23" TextColor="#d9daf0" x:Name="NameExLable">
+                                        <Label.GestureRecognizers>
+                                            <TapGestureRecognizer
+                                                Command="{Binding ExerciseSelected}" 
+                                                CommandParameter="{Binding .}"/>
+                                        </Label.GestureRecognizers>
+                                        
+                                    </Label>
                                 </StackLayout>
                             </ViewCell.View>
                         </ViewCell>
