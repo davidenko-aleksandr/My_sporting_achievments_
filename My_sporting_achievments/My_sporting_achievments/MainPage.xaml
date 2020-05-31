@@ -9,7 +9,7 @@
 
     <StackLayout BackgroundColor="#000000">
 
-
+        
         <Label Text="My sporting achievements"
                     HorizontalOptions="Center"
                     TextColor="#d9daf0"
@@ -23,18 +23,29 @@
                      Margin="0,20,0,20"/>
 
         <Entry Placeholder="Введите логин"
-                          BackgroundColor="#d9daf0"
-                          Margin="20,0,20,0"
-                          Keyboard="Email"
-                          x:Name="LoginEntry"/>
+               Text="{Binding Login}"
+               BackgroundColor="#d9daf0"
+               Margin="20,0,20,0"
+               Keyboard="Email"
+               x:Name="LoginEntry"/>
+
 
         <StackLayout Orientation="Horizontal" Spacing="20">
             <Entry Placeholder="Введите пароль"
-                              BackgroundColor="#d9daf0"
-                              Margin="20,0,0,0"
-                              IsPassword="True"
-                              x:Name="PasswordEntry"
-                              HorizontalOptions="FillAndExpand"/>
+                   Text="{Binding ChangePasswColorTriger}"  
+                   BackgroundColor="#d9daf0"
+                   Margin="20,0,0,0"
+                   IsPassword="True"
+                   x:Name="PasswordEntry"
+                   HorizontalOptions="FillAndExpand">
+                <Entry.Triggers>
+                    <Trigger TargetType="Entry" Property="Text"
+                             Value="True">
+                        <Setter Property="TextColor" Value="Red"/>
+                    </Trigger>
+                </Entry.Triggers>
+            </Entry>
+            
 
             <Button Text="*" 
                         Margin="0,0,20,0"

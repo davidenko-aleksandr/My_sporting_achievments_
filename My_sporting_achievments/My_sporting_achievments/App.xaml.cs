@@ -1,5 +1,4 @@
-﻿using My_sporting_achievments.Repository;
-using My_sporting_achievments.ViewModels;
+﻿using My_sporting_achievments.ViewModels;
 using System;
 using System.IO;
 using Xamarin.Forms;
@@ -24,22 +23,6 @@ namespace My_sporting_achievments
                 return database;
             }
         }
-        public const string DATABASE_LOGIN_PASSWORD = "login_password.db";
-        public static RegistratoinAsyncRepository databasedataBaseLogin;
-        public static RegistratoinAsyncRepository DataBaseLoginPassword
-        { 
-            get
-            {
-                if (databasedataBaseLogin == null)
-                {
-                    databasedataBaseLogin = new RegistratoinAsyncRepository(
-                        Path.Combine(
-                            Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), DATABASE_LOGIN_PASSWORD));
-                }
-                return databasedataBaseLogin;
-            }
-        }
-
         public App()
         {
             InitializeComponent();

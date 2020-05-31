@@ -21,8 +21,7 @@
                                             <TapGestureRecognizer
                                                 Command="{Binding ExerciseSelected}" 
                                                 CommandParameter="{Binding .}"/>
-                                        </Label.GestureRecognizers>
-                                        
+                                        </Label.GestureRecognizers>                                        
                                     </Label>
                                 </StackLayout>
                             </ViewCell.View>

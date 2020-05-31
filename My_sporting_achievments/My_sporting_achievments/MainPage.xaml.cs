@@ -49,23 +49,6 @@ namespace My_sporting_achievments
                 PasswordButton.Text = "%";
             }
         }
-        void OnRegistClicked(object sender, EventArgs args)
-        {
-            Device.OpenUri(new Uri("http://htmlbook.ru/practical/forma-registratsii"));
-
-        }
-        //async void OnOkClicked(object sender, EventArgs args)
-        //{
-        //    Regex regex = new Regex("@");
-
-        //    if (PasswordEntry.Text.Length >= 8 && regex.IsMatch(LoginEntry.Text))
-        //    {
-        //        await NavigationServices.NavigateToAsync(new TrainPage());
-        //    }
-        //    else
-        //    {
-        //        PasswordEntry.TextColor = Color.Red;
-        //    }
-        //}
+        
     }
 }
