@@ -3,8 +3,10 @@ using My_sporting_achievments.Views;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Globalization;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 using System.Windows.Input;
 using Xamarin.Forms;
 
@@ -14,35 +16,36 @@ namespace My_sporting_achievments.ViewModels
     {       
         public event PropertyChangedEventHandler PropertyChanged;
         private ICommand _openChooseWorkoutPageCommand;
-
+        private ICommand _registrationCommand;
+        private ICommand _changeImageCommand;
+        private string _login = string.Empty;
+        private string _password = string.Empty;
+        private bool _isShowImage = true;
         public ICommand OpenChooseWorkoutPageCommand => _openChooseWorkoutPageCommand ??
-            (_openChooseWorkoutPageCommand = new Command(OpenCooseWorcoutPageAsync));
+           (_openChooseWorkoutPageCommand = new Command(OpenCooseWorcoutPageAsync));
+        public ICommand RegistrationCommand => _registrationCommand ??
+            (_registrationCommand = new Command(RegistrationUrl));
+        public ICommand ChangeImageCommand => _changeImageCommand ??
+            (_changeImageCommand = new Command(OnShowPassword));
 
-        private string _password;
-        public string Passward
+        private void OnShowPassword(object obj)
+        {
+            IsShowImage = !IsShowImage;
+        }
+
+        public string Password
         {
             get { return _password; }
             set
             {
-                if (_password != null)
+                if (_password != value )
                 {
                     _password = value;
                 }
-                
+                OnPropertyChanged("Password");
             }
-        } 
-        public bool ChangePasswColorTriger(bool colorRed)
-        {
-            colorRed = true;
-            if (_password.Length < 8)
-            {
-                colorRed = false;
-            }
-            return colorRed;
-        }
-       
-        private string _login;
-        public string Login
+        }    
+         public string Login
         {
             get { return _login; }
             set
@@ -51,10 +54,13 @@ namespace My_sporting_achievments.ViewModels
                 {
                     _login = value;
                     OnPropertyChanged("Login");
-                }
-                
+                }                
             }
             
+        }
+        protected void OnPropertyChanged(string propName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propName));
         }
         async void OpenCooseWorcoutPageAsync()
         {
@@ -63,16 +69,23 @@ namespace My_sporting_achievments.ViewModels
             if (regex.IsMatch(_login))
             {
                 await NavigationServices.NavigateToAsync(new ChooseWorkout());
-            }
-
+            }            
         }
-
-
-
-        protected void OnPropertyChanged(string propName)
+        private void RegistrationUrl()
         {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(propName));
+            Device.OpenUri(new Uri("http://htmlbook.ru/practical/forma-registratsii"));
+        }
+        public bool IsShowImage
+        {
+            get { return _isShowImage; }
+            set
+            {
+                if (_isShowImage != value)
+                {
+                    _isShowImage = value;
+                }
+                OnPropertyChanged("IsShowImage");
+            }
         }
     }
 }

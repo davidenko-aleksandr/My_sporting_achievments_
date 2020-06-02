@@ -3,24 +3,30 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local1="clr-namespace:My_sporting_achievments.Converters"
              mc:Ignorable="d"
              x:Class="My_sporting_achievments.MainPage"
              NavigationPage.HasNavigationBar="False">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local1:ColorConverter x:Key="colorConverter"/>
+            <local1:ChangeImageConverter x:Key="changeImageConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
 
     <StackLayout BackgroundColor="#000000">
 
-        
         <Label Text="My sporting achievements"
-                    HorizontalOptions="Center"
-                    TextColor="#d9daf0"
-                    FontSize="30"
-                    FontFamily="fantasy"
-                    VerticalOptions="Start"/>
+               HorizontalOptions="Center"
+               TextColor="#d9daf0"
+               FontSize="30"
+               FontFamily="fantasy"
+               VerticalOptions="Start"/>
 
         <Image Source="rocky2mini.jpg" 
-                     HorizontalOptions="Center"
-                     VerticalOptions="Center"
-                     Margin="0,20,0,20"/>
+               HorizontalOptions="Center"
+               VerticalOptions="Center"
+               Margin="0,20,0,20"/>
 
         <Entry Placeholder="Введите логин"
                Text="{Binding Login}"
@@ -31,50 +37,37 @@
 
 
         <StackLayout Orientation="Horizontal" Spacing="20">
-            <Entry Placeholder="Введите пароль"
-                   Text="{Binding ChangePasswColorTriger}"  
+            <Entry Placeholder="Введите пароль"  
+                   Text="{Binding Password}"
                    BackgroundColor="#d9daf0"
-                   Margin="20,0,0,0"
-                   IsPassword="True"
+                   Margin="20,0,0,0" 
+                   IsPassword="{Binding IsShowImage}"
                    x:Name="PasswordEntry"
-                   HorizontalOptions="FillAndExpand">
-                <Entry.Triggers>
-                    <Trigger TargetType="Entry" Property="Text"
-                             Value="True">
-                        <Setter Property="TextColor" Value="Red"/>
-                    </Trigger>
-                </Entry.Triggers>
+                   HorizontalOptions="FillAndExpand"
+                   TextColor="{Binding Password, Converter={StaticResource colorConverter}}">
             </Entry>
-            
-
-            <Button Text="*" 
-                        Margin="0,0,20,0"
-                        WidthRequest="40"
-                        HeightRequest="40"
-                        CornerRadius="20"
-                        BackgroundColor="#d9daf0"
-                        TextColor="Black"
-                        Clicked="OnShowPassword"
-                        x:Name="PasswordButton"
-                        HorizontalOptions="End"/>
-                        </StackLayout>
+            <ImageButton  HeightRequest="40" Margin="0, 0 ,20, 0"
+                   Source="{Binding IsShowImage, Converter={StaticResource changeImageConverter}}"
+                   x:Name="ImageShowPassword"
+                   Command="{Binding ChangeImageCommand}"/>
+        </StackLayout>
 
         <Button Text="Регистрация"
-                    FontSize="15"
-                    HorizontalOptions="Center"
-                            TextColor="#d9daf0"
-                    BackgroundColor="Transparent"
-                    Clicked="OnRegistClicked"/>
+                FontSize="15"
+                HorizontalOptions="Center"
+                TextColor="#d9daf0"
+                BackgroundColor="Transparent"
+                Command="{Binding RegistrationCommand}"/>
 
         <Button Text="Войти"
-                    HorizontalOptions="Center"
-                    FontSize="30"
-                    BackgroundColor="#d9daf0"
-                    TextColor="#0e1e1e"
-                    CornerRadius="20"
-                    BorderWidth="2"
-                    BorderColor="#0e1e1e"
-                    Command="{Binding OpenChooseWorkoutPageCommand}"/>
+                HorizontalOptions="Center"
+                FontSize="30"
+                BackgroundColor="#d9daf0"
+                TextColor="#0e1e1e"
+                CornerRadius="20"
+                BorderWidth="2"
+                BorderColor="#0e1e1e"
+                Command="{Binding OpenChooseWorkoutPageCommand}"/>
     </StackLayout>
 
 </ContentPage>
