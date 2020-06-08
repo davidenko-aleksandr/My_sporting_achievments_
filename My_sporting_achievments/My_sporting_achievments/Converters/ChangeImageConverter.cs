@@ -1,13 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Text;
 using Xamarin.Forms;
 
 namespace My_sporting_achievments.Converters
 {
     public class ChangeImageConverter : IValueConverter
     {
+        //меняем изображение кнопки "показать пароль"
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             string changeImage;

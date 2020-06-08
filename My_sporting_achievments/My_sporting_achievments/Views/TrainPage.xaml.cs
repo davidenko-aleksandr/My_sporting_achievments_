@@ -11,6 +11,7 @@ namespace My_sporting_achievments.Views
         {
             InitializeComponent();
         }
+        
         private async void SaveExerciseClicked(object sender, EventArgs e)
         {
             var exercise = (OneExercise)BindingContext;

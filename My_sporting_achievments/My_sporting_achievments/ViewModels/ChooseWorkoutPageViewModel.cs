@@ -14,8 +14,9 @@ namespace My_sporting_achievments.ViewModels
         public event PropertyChangedEventHandler PropertyChanged;
 
         private ICommand _openExercisePageCommand;
+        
         public ICommand OpenExercisePageCommand => _openExercisePageCommand ?? (_openExercisePageCommand = new Command(OpenExercisePageAsync));
-
+        //Переход на страницу тренировки(ExercisePage)
         private async void OpenExercisePageAsync()
         {
             await NavigationServices.NavigateToAsync(new ExercisePage());

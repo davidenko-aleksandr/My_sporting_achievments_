@@ -21,10 +21,13 @@ namespace My_sporting_achievments.ViewModels
         private string _login = string.Empty;
         private string _password = string.Empty;
         private bool _isShowImage = true;
+        //Команда для кнопки "вход" переходим на страницу выбора тренировки(ChooseWorkoutPage)
         public ICommand OpenChooseWorkoutPageCommand => _openChooseWorkoutPageCommand ??
            (_openChooseWorkoutPageCommand = new Command(OpenCooseWorcoutPageAsync));
+        //Команда для кнопки "регистрация" переход на сайт регистрации
         public ICommand RegistrationCommand => _registrationCommand ??
             (_registrationCommand = new Command(RegistrationUrl));
+        //Команда для кнопки "показать пароль"(изображение возле поля ввода пароля)
         public ICommand ChangeImageCommand => _changeImageCommand ??
             (_changeImageCommand = new Command(OnShowPassword));
 
@@ -62,6 +65,7 @@ namespace My_sporting_achievments.ViewModels
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propName));
         }
+        //Проверка логина на корректность
         async void OpenCooseWorcoutPageAsync()
         {
             await NavigationServices.NavigateToAsync(new ChooseWorkout());
