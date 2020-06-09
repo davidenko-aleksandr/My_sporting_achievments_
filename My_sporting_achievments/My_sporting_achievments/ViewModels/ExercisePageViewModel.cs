@@ -17,40 +17,32 @@ namespace My_sporting_achievments.ViewModels
         public event PropertyChangedEventHandler PropertyChanged;
         public ObservableCollection<OneExercise> _trainCollection;
         public ObservableCollection<OneExercise> TrainCollection { get; set; }
-
         public ICommand _сreateTrainCommand;
         public ICommand CreateTrainCommand => _сreateTrainCommand ?? (_сreateTrainCommand = new Command(async () => await AddNewTrainAsync()));
-        OneExerciseViewModel oneExSelected;
-        public INavigation Navigation { get; set; }
-        public OneExerciseViewModel SelectedToExercise
+        OneExercise OneExercise { get; set; }
+        private async Task CheckExercise(object obj)
         {
-            get { return oneExSelected; }
-            set
-            {
-                if (oneExSelected != value)
-                {
-                    OneExerciseViewModel tampExercise = value; 
-                    oneExSelected = null;
-                    OnPropertyChanged("SelectedToExercise");
-                    Navigation.PushAsync(new TrainPage(tampExercise));
-                }
-            }
-        }
-        //Переход на страницу создания и редактирования физ. упражнения (TrainPage)
-        private async Task AddNewTrainAsync()
-        {
-            OneExerciseViewModel oneExercise = new OneExerciseViewModel();
+            OneExercise oneExercise = (OneExercise)obj;
             TrainPage trainPage = new TrainPage(oneExercise);
             trainPage.BindingContext = oneExercise;
             await NavigationServices.NavigateToAsync(trainPage);
         }
+
+        public INavigation Navigation { get; set; }
+       
+        //Переход на страницу создания физ. упражнения (TrainPage)
+        private async Task AddNewTrainAsync()
+        {
+            OneExercise oneExercise = await App.DataBase.GetItemAsync(OneExercise.Id);
+            TrainPage trainPage = new TrainPage(oneExercise);
+            await NavigationServices.NavigateToAsync(trainPage);
+        }
         public ExercisePageViewModel()
         {
-
             InitTable();            
         }
 
-        //Получение таблицы из SQL (нужно не отображает данные на страницы, нужно искать причину)        !!!!!!!!!!!!
+        //Получение таблицы из SQL 
         public async void InitTable()
         {
             //Создание таблицы, если ее нет
@@ -58,7 +50,7 @@ namespace My_sporting_achievments.ViewModels
             //Получение данных из таблицы, для отображения на страцине
             TrainCollection = new ObservableCollection<OneExercise>(await App.DataBase.GetItemsAsync());
             ////при нажатии на упражнение переходим на страницу его редактирования
-            //TrainCollection.ForEach(c => c.ExerciseSelected = new Command(async () => await AddNewTrainAsync()));
+            TrainCollection.ForEach(c => c.ExerciseSelected = new Command<object>(async (oneExs) => await CheckExercise(oneExs))); 
             OnPropertyChanged("TrainCollection");
         }
 

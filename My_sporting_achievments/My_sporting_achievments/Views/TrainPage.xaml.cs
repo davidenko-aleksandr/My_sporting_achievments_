@@ -8,14 +8,13 @@ namespace My_sporting_achievments.Views
 {
     public partial class TrainPage : ContentPage
     {       
-        public OneExerciseViewModel ViewModel { get; set; } 
-        public TrainPage(OneExerciseViewModel vm)
+        public OneExercise ViewModel { get; set; } 
+        public TrainPage(OneExercise vm)
         {
             InitializeComponent();
             ViewModel = vm;
             this.BindingContext = ViewModel;
-        }
-        
+        }        
         private async void SaveExerciseClicked(object sender, EventArgs e)
         {
             var exercise = (OneExercise)BindingContext;
