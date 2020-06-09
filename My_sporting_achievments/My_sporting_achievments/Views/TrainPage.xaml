@@ -37,24 +37,6 @@
                 <Entry Text="{Binding Repetitions_3}"  FontSize="23" 
                        TextColor="#d9daf0" VerticalOptions="Center" WidthRequest="45"/>
             </StackLayout>
-            <Label Text="Подход 4." FontSize="23" TextColor="#d9daf0"/>
-            <StackLayout Orientation="Horizontal">
-                <Label Text="Вес - " FontSize="20" TextColor="#d9daf0" VerticalOptions="Center"/>
-                <Entry Text="{Binding Weight_4}"   FontSize="23" 
-                       TextColor="#d9daf0" VerticalOptions="Center" WidthRequest="80"/>
-                <Label Text="Кол-во повторений - " FontSize="20" TextColor="#d9daf0" VerticalOptions="Center"/>
-                <Entry Text="{Binding Repetitions_4}"  FontSize="23" 
-                       TextColor="#d9daf0" VerticalOptions="Center" WidthRequest="45"/>
-            </StackLayout>
-            <Label Text="Подход 5." FontSize="23" TextColor="#d9daf0"/>
-            <StackLayout Orientation="Horizontal">
-                <Label Text="Вес - " FontSize="20" TextColor="#d9daf0" VerticalOptions="Center"/>
-                <Entry Text="{Binding Weight_5}"   FontSize="23" 
-                       TextColor="#d9daf0" VerticalOptions="Center" WidthRequest="80"/>
-                <Label Text="Кол-во повторений - " FontSize="20" TextColor="#d9daf0" VerticalOptions="Center"/>
-                <Entry Text="{Binding Repetitions_5}"  FontSize="23" 
-                       TextColor="#d9daf0" VerticalOptions="Center" WidthRequest="45"/>
-            </StackLayout>
             <Entry Text="{Binding Repetitions}"/>
             <StackLayout Orientation="Horizontal">
                 <Button Text="Сохранить" Clicked="SaveExerciseClicked" TextColor="#d9daf0" CornerRadius="20" BackgroundColor="#000000"/>

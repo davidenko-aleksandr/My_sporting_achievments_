@@ -9,16 +9,7 @@ namespace My_sporting_achievments.Views
         {
             Device.SetFlags(new[] { "CollectionView_Experimental", "Shell_Experimental" });
             InitializeComponent();
-            BindingContext = new ExercisePageViewModel();
-        }
-        protected override async void OnAppearing()
-        {
-
-            await App.DataBase.CreateTable();
-
-            exerciseList.ItemsSource = await App.DataBase.GetItemsAsync();
-
-            base.OnAppearing();
+            BindingContext = new ExercisePageViewModel() { Navigation = this.Navigation };
         }
 
         //private async void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
