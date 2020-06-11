@@ -1,7 +1,7 @@
 ﻿using My_sporting_achievments.Models;
 using My_sporting_achievments.Services;
 using My_sporting_achievments.Views;
-using System;
+using My_sporting_achievments.Converters;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -19,23 +19,25 @@ namespace My_sporting_achievments.ViewModels
         public ObservableCollection<OneExercise> TrainCollection { get; set; }
         public ICommand _сreateTrainCommand;
         public ICommand CreateTrainCommand => _сreateTrainCommand ?? (_сreateTrainCommand = new Command(async () => await AddNewTrainAsync()));
-        OneExercise OneExercise { get; set; }
-        private async Task CheckExercise(object obj)
-        {
-            OneExercise oneExercise = (OneExercise)obj;
-            TrainPage trainPage = new TrainPage(oneExercise);
-            trainPage.BindingContext = oneExercise;
-            await NavigationServices.NavigateToAsync(trainPage);
-        }
 
-        public INavigation Navigation { get; set; }
-       
+        public INavigation Navigation { get; internal set; }
+
+        //Переход на страницу редактирования упражнения (TrainPage)
+        private async Task CheckExercise(object obj)
+        {   //приводим полученный объект к типу "OneExercise"
+            OneExercise exercise = (OneExercise)obj;
+            //cоздаем объект для последующей конвертации в нужный нам тип "OneExerciseViewModel"
+            OneExsToViewModelConverter oneExsTo = new OneExsToViewModelConverter();
+            //открываем страницу редактирования и передаем в нее объкт нужного типа
+            await NavigationServices.NavigateToAsync(new TrainPage(oneExsTo.ConvertTooneexsVM(exercise)));
+        }
+               
         //Переход на страницу создания физ. упражнения (TrainPage)
         private async Task AddNewTrainAsync()
         {
-            OneExercise oneExercise = await App.DataBase.GetItemAsync(OneExercise.Id);
-            TrainPage trainPage = new TrainPage(oneExercise);
-            await NavigationServices.NavigateToAsync(trainPage);
+            //создаем объект нужного типа и передаем его на страницу создания физ.упражнения
+            OneExerciseViewModel viewModel = new OneExerciseViewModel();
+            await NavigationServices.NavigateToAsync(new TrainPage(viewModel));
         }
         public ExercisePageViewModel()
         {
@@ -56,8 +58,7 @@ namespace My_sporting_achievments.ViewModels
 
         protected void OnPropertyChanged(string propName)
         {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(propName));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propName));
         }
     }
 }

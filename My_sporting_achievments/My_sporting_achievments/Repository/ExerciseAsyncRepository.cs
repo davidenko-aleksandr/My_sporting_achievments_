@@ -8,7 +8,7 @@ namespace My_sporting_achievments.ViewModels
     //Создание репозитория для работы с SQL
     public class ExerciseAsyncRepository 
     {
-        SQLiteAsyncConnection dataBase;
+        readonly SQLiteAsyncConnection dataBase;
         public ExerciseAsyncRepository(string databasePath)
         {
             dataBase = new SQLiteAsyncConnection(databasePath);        

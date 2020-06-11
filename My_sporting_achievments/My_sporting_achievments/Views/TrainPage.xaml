@@ -8,41 +8,49 @@
              NavigationPage.HasNavigationBar="False">
     <ContentPage.Content>
         <StackLayout BackgroundColor="#000000">
-            <Entry Text="{Binding NameExercise}" Placeholder="Название упражнения" PlaceholderColor="#d9daf0"
-                   FontSize="25" HorizontalOptions="Center" TextColor="#d9daf0"/>
-            <Label Text="Подход 1." FontSize="23" TextColor="#d9daf0"/>
-            <StackLayout Orientation="Horizontal">
-                <Label Text="Вес - " FontSize="20" TextColor="#d9daf0" VerticalOptions="Center"/>
-                <Entry Text="{Binding Weight_1}"   FontSize="23"  WidthRequest="80"
-                       TextColor="#d9daf0" VerticalOptions="Center"/>
-                <Label Text="Кол-во повторений - " FontSize="20" TextColor="#d9daf0" VerticalOptions="Center"/>
-                <Entry Text="{Binding Repetitions_1}"  FontSize="23" 
-                       TextColor="#d9daf0" VerticalOptions="Center" WidthRequest="45"/>
-            </StackLayout>
-            <Label Text="Подход 2." FontSize="23" TextColor="#d9daf0"/>
-            <StackLayout Orientation="Horizontal">
-                <Label Text="Вес - " FontSize="20" TextColor="#d9daf0" VerticalOptions="Center"/>
-                <Entry Text="{Binding Weight_2}"   FontSize="23" 
-                       TextColor="#d9daf0" VerticalOptions="Center" WidthRequest="80"/>
-                <Label Text="Кол-во повторений - " FontSize="20" TextColor="#d9daf0" VerticalOptions="Center"/>
-                <Entry Text="{Binding Repetitions_2}"  FontSize="23" 
-                       TextColor="#d9daf0" VerticalOptions="Center" WidthRequest="45"/>
-            </StackLayout>
-            <Label Text="Подход 3." FontSize="23" TextColor="#d9daf0"/>
-            <StackLayout Orientation="Horizontal">
-                <Label Text="Вес - " FontSize="20" TextColor="#d9daf0" VerticalOptions="Center"/>
-                <Entry Text="{Binding Weight_3}"   FontSize="23" 
-                       TextColor="#d9daf0" VerticalOptions="Center" WidthRequest="80"/>
-                <Label Text="Кол-во повторений - " FontSize="20" TextColor="#d9daf0" VerticalOptions="Center"/>
-                <Entry Text="{Binding Repetitions_3}"  FontSize="23" 
-                       TextColor="#d9daf0" VerticalOptions="Center" WidthRequest="45"/>
-            </StackLayout>
-            <Entry Text="{Binding Repetitions}"/>
-            <StackLayout Orientation="Horizontal">
-                <Button Text="Сохранить" Clicked="SaveExerciseClicked" TextColor="#d9daf0" CornerRadius="20" BackgroundColor="#000000"/>
-                <Button Text="Удалить" Clicked="DeleteExerciseClicked" TextColor="#d9daf0" CornerRadius="20" BackgroundColor="#000000"/>
-                <Button Text="Отмена" Clicked="CancelClicked" TextColor="#d9daf0" CornerRadius="20" BackgroundColor="#000000"/>
-            </StackLayout>
+            <CollectionView>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout>
+                        <Entry Text="{Binding NameExercise}" Placeholder="Название упражнения" PlaceholderColor="#d9daf0"
+                               FontSize="25" HorizontalOptions="Center" TextColor="#d9daf0"/>
+                        <Label Text="Подход 1." FontSize="23" TextColor="#d9daf0"/>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Вес - " FontSize="20" TextColor="#d9daf0" VerticalOptions="Center"/>
+                            <Entry Text="{Binding Weight_1}"   FontSize="23"  WidthRequest="80"
+                                   TextColor="#d9daf0" VerticalOptions="Center"/>
+                            <Label Text="Кол-во повторений - " FontSize="20" TextColor="#d9daf0" VerticalOptions="Center"/>
+                            <Entry Text="{Binding Repetitions_1}"  FontSize="23" 
+                                   TextColor="#d9daf0" VerticalOptions="Center" WidthRequest="45"/>
+                        </StackLayout>
+                        <Label Text="Подход 2." FontSize="23" TextColor="#d9daf0"/>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Вес - " FontSize="20" TextColor="#d9daf0" VerticalOptions="Center"/>
+                            <Entry Text="{Binding Weight_2}"   FontSize="23" 
+                                   TextColor="#d9daf0" VerticalOptions="Center" WidthRequest="80"/>
+                            <Label Text="Кол-во повторений - " FontSize="20" TextColor="#d9daf0" VerticalOptions="Center"/>
+                            <Entry Text="{Binding Repetitions_2}"  FontSize="23" 
+                                   TextColor="#d9daf0" VerticalOptions="Center" WidthRequest="45"/>
+                        </StackLayout>
+                        <Label Text="Подход 3." FontSize="23" TextColor="#d9daf0"/>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Вес - " FontSize="20" TextColor="#d9daf0" VerticalOptions="Center"/>
+                            <Entry Text="{Binding Weight_3}"   FontSize="23" 
+                                   TextColor="#d9daf0" VerticalOptions="Center" WidthRequest="80"/>
+                            <Label Text="Кол-во повторений - " FontSize="20" TextColor="#d9daf0" VerticalOptions="Center"/>
+                            <Entry Text="{Binding Repetitions_3}"  FontSize="23" 
+                                   TextColor="#d9daf0" VerticalOptions="Center" WidthRequest="45"/>                
+                        </StackLayout>
+                        <Label Text="{Binding  Path=Result}" FontSize="20" TextColor="#d9daf0" VerticalOptions="Center"/>
+                        <StackLayout Orientation="Horizontal">
+                            <Button Text="Сохранить" Clicked="SaveExerciseClicked" TextColor="#d9daf0" CornerRadius="20" BackgroundColor="#000000"/>
+                            <Button Text="Удалить" Clicked="DeleteExerciseClicked" TextColor="#d9daf0" CornerRadius="20" BackgroundColor="#000000"/>
+                            <Button Text="Отмена" Clicked="CancelClicked" TextColor="#d9daf0" CornerRadius="20" BackgroundColor="#000000"/>
+                        </StackLayout>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

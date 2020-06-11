@@ -1,4 +1,4 @@
-﻿using My_sporting_achievments.Models;
+﻿using My_sporting_achievments.Converters;
 using My_sporting_achievments.ViewModels;
 using System;
 using Xamarin.Forms;
@@ -7,9 +7,11 @@ using Xamarin.Forms;
 namespace My_sporting_achievments.Views
 {
     public partial class TrainPage : ContentPage
-    {       
-        public OneExercise ViewModel { get; set; } 
-        public TrainPage(OneExercise vm)
+    {
+
+        OneExsToViewModelConverter oneExsTo = new OneExsToViewModelConverter();
+        public OneExerciseViewModel ViewModel { get; set; }
+        public TrainPage(OneExerciseViewModel vm)
         {
             InitializeComponent();
             ViewModel = vm;
@@ -17,17 +19,17 @@ namespace My_sporting_achievments.Views
         }        
         private async void SaveExerciseClicked(object sender, EventArgs e)
         {
-            var exercise = (OneExercise)BindingContext;
+            var exercise = (OneExerciseViewModel)BindingContext;
             if (!String.IsNullOrEmpty(exercise.NameExercise))
             {
-                await App.DataBase.SaveItemAsync(exercise);
+                await App.DataBase.SaveItemAsync(oneExsTo.ConvertToOneExs(exercise));
             }
             await this.Navigation.PopAsync();
         }
         private async void DeleteExerciseClicked(object sender, EventArgs e)
         {
-            var exercise = (OneExercise)BindingContext;
-            await App.DataBase.DeleteItemAsync(exercise);
+            var exercise = (OneExerciseViewModel)BindingContext;
+            await App.DataBase.DeleteItemAsync(oneExsTo.ConvertToOneExs(exercise));
             await this.Navigation.PopAsync();
         }
         private async void CancelClicked(object sender, EventArgs e) 

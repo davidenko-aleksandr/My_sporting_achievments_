@@ -9,16 +9,8 @@ namespace My_sporting_achievments.Views
         {
             Device.SetFlags(new[] { "CollectionView_Experimental", "Shell_Experimental" });
             InitializeComponent();
-            BindingContext = new ExercisePageViewModel() { Navigation = this.Navigation };
+            BindingContext = new ExercisePageViewModel();
         }
-
-        //private async void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
-        //{
-        //    OneExercise selectedExercise = (OneExercise)e.SelectedItem;
-        //    TrainPage trainPage = new TrainPage();
-        //    trainPage.BindingContext = selectedExercise;
-        //    await Navigation.PushAsync(trainPage);
-        //}
     }
 }
 
